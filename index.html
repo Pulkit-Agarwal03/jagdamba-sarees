@@ -6,682 +6,33 @@
     <title>Jagdamba Saree | Celebrate Traditions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
-    <style>
-        :root {
-            --primary-dark: #1a1a1a;
-            --primary-light: #f8f5f0;
-            --accent-gold: #b89446;
-            --accent-maroon: #8b0000;
-            --text-dark: #333;
-            --text-light: #777;
-            --white: #ffffff;
-            --transition: all 0.3s ease;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            --border: 1px solid #eaeaea;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            background-color: var(--white);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5 {
-            font-family: 'Crimson Text', serif;
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* ===== HEADER ===== */
-        header {
-            background-color: var(--white);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            border-bottom: var(--border);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            font-size: 2.2rem;
-            color: var(--accent-maroon);
-        }
-
-        .logo-text h1 {
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-            color: var(--primary-dark);
-        }
-
-        .logo-tagline {
-            font-size: 0.75rem;
-            color: var(--text-light);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        nav a {
-            color: var(--primary-dark);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: var(--transition);
-            position: relative;
-            padding: 5px 0;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            background: var(--accent-gold);
-            bottom: 0;
-            left: 0;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent-gold);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .nav-icon {
-            color: var(--primary-dark);
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .nav-icon:hover {
-            color: var(--accent-gold);
-        }
-
-        .sale-badge {
-            background-color: var(--accent-maroon);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 3px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-left: 10px;
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
-            min-height: 90vh;
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            text-align: center;
-            margin-top: 80px;
-            padding: 60px 20px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            color: var(--accent-gold);
-        }
-
-        .hero-title {
-            font-size: 4.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-tagline {
-            font-size: 1.5rem;
-            margin-bottom: 2.5rem;
-            font-weight: 300;
-            opacity: 0.9;
-        }
-
-        .hero-cta {
-            background-color: var(--accent-gold);
-            color: var(--white);
-            padding: 18px 45px;
-            border: none;
-            border-radius: 0;
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-        }
-
-        .hero-cta:hover {
-            background-color: var(--accent-maroon);
-            transform: translateY(-3px);
-        }
-
-        .hero-notice {
-            margin-top: 3rem;
-            font-size: 0.9rem;
-            color: #ddd;
-            font-style: italic;
-        }
-
-        /* ===== SHOP BY COLLECTIONS ===== */
-        .collections {
-            padding: 100px 0;
-            background-color: var(--primary-light);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.8rem;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 15px;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 2px;
-            background: var(--accent-gold);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .collections-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .collection-card {
-            position: relative;
-            overflow: hidden;
-            height: 500px;
-        }
-
-        .collection-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .collection-card:hover .collection-img {
-            transform: scale(1.05);
-        }
-
-        .collection-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            color: white;
-            padding: 40px 30px;
-        }
-
-        .collection-name {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .collection-btn {
-            background: transparent;
-            color: white;
-            border: 1px solid white;
-            padding: 12px 30px;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-            margin-top: 15px;
-        }
-
-        .collection-btn:hover {
-            background: white;
-            color: var(--primary-dark);
-        }
-
-        /* ===== FEATURED COLLECTIONS ===== */
-        .featured-collections {
-            padding: 100px 0;
-        }
-
-        .collections-mini-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-            margin-bottom: 60px;
-        }
-
-        .mini-collection-card {
-            text-align: center;
-            padding: 30px 15px;
-            border: var(--border);
-            transition: var(--transition);
-        }
-
-        .mini-collection-card:hover {
-            box-shadow: var(--shadow);
-            border-color: var(--accent-gold);
-        }
-
-        .mini-collection-card h3 {
-            font-size: 1.4rem;
-            margin-top: 15px;
-            color: var(--accent-maroon);
-        }
-
-        .mini-icon {
-            font-size: 2.5rem;
-            color: var(--accent-gold);
-            margin-bottom: 15px;
-        }
-
-        /* ===== NEW ARRIVALS & BRIDAL ===== */
-        .new-arrivals {
-            padding: 80px 0;
-            background-color: var(--primary-light);
-        }
-
-        .dual-section {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .new-items-box {
-            background-color: var(--white);
-            padding: 50px;
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
-
-        .new-items-box h3 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--primary-dark);
-        }
-
-        .item-count {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--accent-maroon);
-            margin-bottom: 15px;
-        }
-
-        .bridal-box {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') no-repeat center center/cover;
-            color: white;
-            padding: 50px 40px;
-            text-align: center;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .bridal-box h3 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: var(--accent-gold);
-        }
-
-        .bridal-box p {
-            margin-bottom: 25px;
-            opacity: 0.9;
-        }
-
-        .btn-light {
-            background: transparent;
-            color: white;
-            border: 1px solid white;
-            padding: 12px 30px;
-            align-self: center;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-light:hover {
-            background: white;
-            color: var(--primary-dark);
-        }
-
-        /* ===== FEATURED PRODUCTS ===== */
-        .featured-products {
-            padding: 100px 0;
-        }
-
-        .products-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 50px;
-        }
-
-        .products-header h2 {
-            font-size: 2.5rem;
-        }
-
-        .view-all {
-            color: var(--accent-maroon);
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 1px;
-            border-bottom: 1px solid var(--accent-maroon);
-            padding-bottom: 3px;
-            transition: var(--transition);
-        }
-
-        .view-all:hover {
-            color: var(--accent-gold);
-            border-color: var(--accent-gold);
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-
-        .product-card {
-            border: var(--border);
-            transition: var(--transition);
-        }
-
-        .product-card:hover {
-            box-shadow: var(--shadow);
-        }
-
-        .product-img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 25px 20px;
-            text-align: center;
-        }
-
-        .product-category {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .product-title {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--primary-dark);
-        }
-
-        .product-price {
-            color: var(--accent-maroon);
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-
-        /* ===== SERVICES ===== */
-        .services {
-            padding: 80px 0;
-            background-color: var(--primary-light);
-            border-top: var(--border);
-            border-bottom: var(--border);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .service-card {
-            text-align: center;
-            padding: 40px 30px;
-            background: var(--white);
-            box-shadow: var(--shadow);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--accent-gold);
-            margin-bottom: 25px;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background-color: var(--primary-dark);
-            color: #aaa;
-            padding: 80px 0 30px;
-        }
-
-        .footer-top {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 50px;
-            margin-bottom: 60px;
-        }
-
-        .footer-column h3 {
-            color: var(--white);
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 15px;
-        }
-
-        .footer-column ul li a {
-            color: #aaa;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--accent-gold);
-            padding-left: 5px;
-        }
-
-        .contact-info li {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-gold);
-        }
-
-        .newsletter input {
-            width: 100%;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            margin-bottom: 15px;
-        }
-
-        .newsletter button {
-            width: 100%;
-            padding: 15px;
-            background: var(--accent-gold);
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .newsletter button:hover {
-            background: var(--accent-maroon);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: #777;
-            font-size: 0.9rem;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1200px) {
-            .collections-grid, .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .collections-mini-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-top {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            nav ul {
-                gap: 1.5rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .hero-title {
-                font-size: 3rem;
-            }
-            .dual-section {
-                grid-template-columns: 1fr;
-            }
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .collections-grid, .products-grid, .collections-mini-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            .collection-card {
-                height: 400px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- HEADER -->
     <header>
         <div class="container header-container">
-            <div class="logo">
+            <a href="#home" class="logo">
                 <i class="fas fa-female logo-icon"></i>
                 <div class="logo-text">
                     <h1>Jagdamba Saree</h1>
                     <div class="logo-tagline">Celebrate Traditions</div>
                 </div>
-            </div>
+            </a>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#collections">Shop</a></li>
-                    <li><a href="#sale">Sale <span class="sale-badge">%</span></a></li>
+                    <li><a href="#sale-section">Sale</a></li>
+                    <li><a href="#collections">Collections</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
             <div class="nav-actions">
                 <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
-                <a href="#" class="nav-icon"><i class="fas fa-shopping-bag"></i></a>
+                <a href="#" class="nav-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">3</span>
+                </a>
                 <a href="tel:+919411920850" class="nav-icon"><i class="fas fa-phone"></i></a>
             </div>
         </div>
@@ -690,11 +41,69 @@
     <!-- HERO SECTION -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <div class="hero-subtitle">Bridal Sarees</div>
-            <h1 class="hero-title">Celebrate Traditions</h1>
-            <p class="hero-tagline">Support Puja Collection Available</p>
-            <button class="hero-cta">Shop Now</button>
-            <p class="hero-notice">Explore our exclusive collection for weddings and festivals</p>
+            <div class="hero-subtitle">Premium Collection</div>
+            <h1 class="hero-title">All Kinds of Sarees & Lehengas Available</h1>
+            <p class="hero-tagline">The Art of the Drape, The Glow of the Jewel</p>
+            <button class="hero-cta">Explore Collection</button>
+            <p class="hero-notice">Visit our store in Ghee Ki Mandi, Bareilly for exclusive collections</p>
+        </div>
+    </section>
+
+    <!-- SALE SECTION -->
+    <section class="sale-section" id="sale-section">
+        <div class="container">
+            <div class="sale-header">
+                <h2>Flash Sale - Limited Time!</h2>
+                <div class="sale-timer">
+                    <span><i class="fas fa-clock"></i> Sale Ends in: <span id="countdown-timer">2 days 14:30:15</span></span>
+                </div>
+            </div>
+            <div class="sale-products-grid">
+                <div class="sale-product-card">
+                    <div class="sale-badge-large">50% OFF</div>
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Banarasi Silk Saree" class="sale-product-img">
+                    <div class="sale-product-info">
+                        <h4 class="sale-product-title">Banarasi Silk Saree</h4>
+                        <div class="sale-price">
+                            <del>₹ 15,999</del> ₹ 7,999
+                            <span class="discount">50% OFF</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sale-product-card">
+                    <div class="sale-badge-large">40% OFF</div>
+                    <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Designer Lehenga" class="sale-product-img">
+                    <div class="sale-product-info">
+                        <h4 class="sale-product-title">Designer Lehenga Set</h4>
+                        <div class="sale-price">
+                            <del>₹ 22,999</del> ₹ 13,799
+                            <span class="discount">40% OFF</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sale-product-card">
+                    <div class="sale-badge-large">35% OFF</div>
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Jewelry Set" class="sale-product-img">
+                    <div class="sale-product-info">
+                        <h4 class="sale-product-title">Bridal Jewelry Set</h4>
+                        <div class="sale-price">
+                            <del>₹ 9,999</del> ₹ 6,499
+                            <span class="discount">35% OFF</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sale-product-card">
+                    <div class="sale-badge-large">45% OFF</div>
+                    <img src="https://images.unsplash.com/photo-1585487000160-6eb9ce6b5a5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Printed Saree" class="sale-product-img">
+                    <div class="sale-product-info">
+                        <h4 class="sale-product-title">Printed Georgette Saree</h4>
+                        <div class="sale-price">
+                            <del>₹ 7,499</del> ₹ 4,124
+                            <span class="discount">45% OFF</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -703,27 +112,28 @@
         <div class="container">
             <div class="section-header">
                 <h2>Shop By Collections</h2>
+                <p style="color: var(--text-light); margin-top: 15px;">Discover our handpicked collections</p>
             </div>
             <div class="collections-grid">
                 <div class="collection-card">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Banarasi Sarees" class="collection-img">
+                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Banarasi Sarees" class="collection-img">
                     <div class="collection-overlay">
-                        <h3 class="collection-name">Banarasi Sarees</h3>
-                        <button class="collection-btn">Shop Now</button>
+                        <h3 class="collection-name">Banarasi Silk</h3>
+                        <button class="collection-btn">Shop Collection</button>
                     </div>
                 </div>
                 <div class="collection-card">
-                    <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Madhubani Sarees" class="collection-img">
+                    <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Designer Lehengas" class="collection-img">
                     <div class="collection-overlay">
-                        <h3 class="collection-name">Madhubani Sarees</h3>
-                        <button class="collection-btn">Shop Now</button>
+                        <h3 class="collection-name">Designer Lehengas</h3>
+                        <button class="collection-btn">Shop Collection</button>
                     </div>
                 </div>
                 <div class="collection-card">
-                    <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Designer Sarees" class="collection-img">
+                    <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Madhubani Art" class="collection-img">
                     <div class="collection-overlay">
-                        <h3 class="collection-name">Designer Sarees</h3>
-                        <button class="collection-btn">Shop Now</button>
+                        <h3 class="collection-name">Madhubani Art</h3>
+                        <button class="collection-btn">Shop Collection</button>
                     </div>
                 </div>
             </div>
@@ -734,24 +144,29 @@
     <section class="featured-collections">
         <div class="container">
             <div class="section-header">
-                <h2>Our Collections</h2>
+                <h2>Our Signature Collections</h2>
+                <p style="color: var(--text-light); margin-top: 15px;">Traditional craftsmanship meets contemporary design</p>
             </div>
             <div class="collections-mini-grid">
                 <div class="mini-collection-card">
                     <i class="fas fa-gem mini-icon"></i>
-                    <h3>Banarasi Sarees</h3>
+                    <h3>Banarasi Silk</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 10px;">Heavy zari work</p>
                 </div>
                 <div class="mini-collection-card">
                     <i class="fas fa-palette mini-icon"></i>
-                    <h3>Madhubani Sarees</h3>
+                    <h3>Madhubani</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 10px;">Traditional art prints</p>
                 </div>
                 <div class="mini-collection-card">
                     <i class="fas fa-feather-alt mini-icon"></i>
                     <h3>Linen Sarees</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 10px;">Light & comfortable</p>
                 </div>
                 <div class="mini-collection-card">
                     <i class="fas fa-crown mini-icon"></i>
-                    <h3>Bridal Sarees</h3>
+                    <h3>Bridal Collection</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 10px;">For special occasions</p>
                 </div>
             </div>
         </div>
@@ -761,14 +176,14 @@
     <section class="new-arrivals">
         <div class="container dual-section">
             <div class="new-items-box">
-                <h3>What's New</h3>
+                <h3>Latest Arrivals</h3>
                 <div class="item-count">1,197</div>
-                <p>New Items. Get ahead of the style curve with our latest arrivals.</p>
-                <button class="btn-light" style="color: var(--primary-dark); border-color: var(--primary-dark);">Store Now</button>
+                <p style="color: var(--text-light); margin-bottom: 30px;">New Items. Get ahead of the style curve with our latest arrivals.</p>
+                <button class="btn-light" style="color: var(--primary-dark); border-color: var(--primary-dark);">Shop New Arrivals</button>
             </div>
             <div class="bridal-box">
-                <h3>Introducing Bridal Regal Collection</h3>
-                <p>Exquisite handcrafted sarees for your special day, featuring premium fabrics and intricate embroidery.</p>
+                <h3>Bridal Regal Collection</h3>
+                <p>Exquisite handcrafted sarees & lehengas for your special day. Premium fabrics with intricate embroidery.</p>
                 <button class="btn-light">Explore Collection</button>
             </div>
         </div>
@@ -779,27 +194,30 @@
         <div class="container">
             <div class="products-header">
                 <h2>Featured Products</h2>
-                <a href="#collections" class="view-all">See More Products →</a>
+                <a href="#collections" class="view-all">
+                    View All
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
             <div class="products-grid">
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Banarasi Silk Saree" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Heavy Banarasi Saree" class="product-img">
                     <div class="product-info">
                         <div class="product-category">Banarasi Silk</div>
                         <h4 class="product-title">Heavy Zari Work Saree</h4>
-                        <div class="product-price">₹ 8,499</div>
+                        <div class="product-price">₹ 8,499 <del>₹ 10,999</del></div>
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1585487000160-6eb9ce6b5a5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Madhubani Printed Saree" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1585487000160-6eb9ce6b5a5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Madhubani Printed Saree" class="product-img">
                     <div class="product-info">
                         <div class="product-category">Madhubani Art</div>
                         <h4 class="product-title">Traditional Printed Cotton</h4>
-                        <div class="product-price">₹ 3,299</div>
+                        <div class="product-price">₹ 3,299 <del>₹ 4,499</del></div>
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Designer Lehenga" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Designer Lehenga" class="product-img">
                     <div class="product-info">
                         <div class="product-category">Lehenga</div>
                         <h4 class="product-title">Party Wear Lehenga Set</h4>
@@ -807,11 +225,11 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jewelry Set" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Jewelry Set" class="product-img">
                     <div class="product-info">
                         <div class="product-category">Jewelry</div>
                         <h4 class="product-title">Bridal Necklace Set</h4>
-                        <div class="product-price">₹ 5,499</div>
+                        <div class="product-price">₹ 5,499 <del>₹ 7,999</del></div>
                     </div>
                 </div>
             </div>
@@ -824,17 +242,12 @@
             <div class="service-card">
                 <i class="fas fa-truck service-icon"></i>
                 <h3>Free Shipping</h3>
-                <p>For orders above ₹5000 across Bareilly. Fast and reliable delivery.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-exchange-alt service-icon"></i>
-                <h3>Easy Exchange</h3>
-                <p>Hassle-free 7-day exchange policy. Contact us at +91 9411920850.</p>
+                <p>Free delivery on orders above ₹5000 across Bareilly. Fast and reliable delivery.</p>
             </div>
             <div class="service-card">
                 <i class="fas fa-money-bill-wave service-icon"></i>
                 <h3>Cash on Delivery</h3>
-                <p>Pay when you receive. Available for all orders in Bareilly.</p>
+                <p>Pay when you receive. Available for all orders in Bareilly and nearby areas.</p>
             </div>
         </div>
     </section>
@@ -845,16 +258,25 @@
             <div class="footer-top">
                 <div class="footer-column">
                     <h3>Jagdamba Saree</h3>
-                    <p>Celebrating Indian textile heritage with authentic handcrafted sarees, lehengas, and jewelry since 2005.</p>
-                    <ul class="contact-info" style="margin-top: 20px;">
+                    <p style="margin-bottom: 20px;">Celebrating Indian textile heritage with authentic handcrafted sarees, lehengas, and jewelry since 2005.</p>
+                    <ul class="contact-info">
                         <li>
                             <div class="contact-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div>
-                                <strong>CALL:</strong><br>
+                                <strong>Call Us</strong><br>
                                 +91 9411920850<br>
                                 +91 9412294017
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <strong>Email</strong><br>
+                                jagdambasareebly@gmail.com
                             </div>
                         </li>
                         <li>
@@ -862,98 +284,75 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
-                                <strong>ADDRESS:</strong><br>
+                                <strong>Visit Store</strong><br>
                                 Ghee Ki Mandi, Bareilly<br>
-                                Uttar Pradesh 243001, India
+                                Uttar Pradesh 243001
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Buying Guide</h3>
+                    <h3>Shop By</h3>
                     <ul>
-                        <li><a href="#">How to Buy</a></li>
-                        <li><a href="#">Payment Options</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Returns & Exchange</a></li>
-                        <li><a href="#">Packaging</a></li>
+                        <li><a href="#collections">Sarees</a></li>
+                        <li><a href="#collections">Lehengas</a></li>
+                        <li><a href="#collections">Jewelry</a></li>
+                        <li><a href="#sale-section">Sale Items</a></li>
+                        <li><a href="#collections">New Arrivals</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Information</h3>
+                    <h3>Customer Service</h3>
                     <ul>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQs</a></li>
                         <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Store Locator</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to our newsletter to stay updated with the latest news and offers.</p>
+                    <h3>Stay Connected</h3>
+                    <p style="margin-bottom: 20px;">Subscribe for updates on new arrivals, exclusive offers, and styling tips.</p>
                     <div class="newsletter">
-                        <input type="email" placeholder="Your email address">
+                        <input type="email" placeholder="Your email address" required>
                         <button type="submit">Subscribe</button>
                     </div>
                     <div style="margin-top: 30px;">
                         <h4>Follow Us</h4>
-                        <div style="display: flex; gap: 15px; margin-top: 15px;">
-                            <a href="https://www.instagram.com/jagdamba_saree_/" target="_blank" style="color: #aaa; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
-                            <a href="https://wa.me/919411920850" target="_blank" style="color: #aaa; font-size: 1.2rem;"><i class="fab fa-whatsapp"></i></a>
-                            <a href="mailto:jagdambasareebly@gmail.com" style="color: #aaa; font-size: 1.2rem;"><i class="fas fa-envelope"></i></a>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/jagdamba_saree_/" target="_blank" class="social-link" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://wa.me/919411920850" target="_blank" class="social-link" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="mailto:jagdambasareebly@gmail.com" class="social-link" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="tel:+919411920850" class="social-link" title="Call">
+                                <i class="fas fa-phone"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Jagdamba Saree. All rights reserved. | Celebrate Traditions</p>
+                <p>&copy; 2023 Jagdamba Saree Shop. All rights reserved. | Ghee Ki Mandi, Bareilly, Uttar Pradesh 243001</p>
             </div>
         </div>
     </footer>
 
     <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/919411920850?text=Hi,%20I'm%20interested%20in%20your%20saree%20collection" target="_blank" style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3); z-index: 999; text-decoration: none;">
+    <a href="https://wa.me/919411920850?text=Hi,%20I'm%20interested%20in%20your%20saree%20collection" target="_blank" class="floating-whatsapp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+    <!-- BACK TO TOP -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
 
-        // Simple newsletter form handling
-        document.querySelector('.newsletter button').addEventListener('click', function() {
-            const email = document.querySelector('.newsletter input').value;
-            if(email && email.includes('@')) {
-                alert('Thank you for subscribing to our newsletter!');
-                document.querySelector('.newsletter input').value = '';
-            } else {
-                alert('Please enter a valid email address.');
-            }
-        });
-
-        // Shop Now buttons functionality
-        document.querySelectorAll('.hero-cta, .collection-btn, .btn-light').forEach(button => {
-            button.addEventListener('click', function() {
-                window.scrollTo({
-                    top: document.querySelector('#collections').offsetTop - 100,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
