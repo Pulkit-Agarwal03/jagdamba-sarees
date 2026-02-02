@@ -57,15 +57,11 @@ header.scrolled {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes headerSlideDown {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(0); }
-}
-
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -96,6 +92,18 @@ header.scrolled {
     color: var(--text-light);
     letter-spacing: 2px;
     text-transform: uppercase;
+}
+
+/* Mobile Menu Button - Hidden by default */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+    cursor: pointer;
+    z-index: 1001;
+    padding: 5px;
 }
 
 nav ul {
@@ -144,11 +152,12 @@ nav a:hover::after {
     color: var(--primary-dark);
     font-size: 1.2rem;
     transition: var(--transition);
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
 }
 
 .nav-icon:hover {
@@ -171,12 +180,6 @@ nav a:hover::after {
     justify-content: center;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
 .sale-badge {
     background-color: var(--accent-maroon);
     color: white;
@@ -195,9 +198,7 @@ nav a:hover::after {
 
 /* ===== HERO SECTION ===== */
 .hero {
-    background: 
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
-        url('New folder\240_F_165933977_EkQHMP3cIOaAJXhk6LtgEeQjU9hvOc3S.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
     min-height: 95vh;
     color: var(--white);
     display: flex;
@@ -209,11 +210,6 @@ nav a:hover::after {
     overflow: hidden;
 }
 
-@keyframes zoomIn {
-    0% { background-size: 100%; }
-    100% { background-size: 110%; }
-}
-
 .hero::before {
     content: '';
     position: absolute;
@@ -222,6 +218,9 @@ nav a:hover::after {
     right: 0;
     bottom: 0;
     background: url('background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
     pointer-events: none;
 }
 
@@ -231,6 +230,8 @@ nav a:hover::after {
     position: relative;
     z-index: 1;
     animation: fadeInUp 1s ease-out;
+    width: 100%;
+    padding: 0 5%;
 }
 
 @keyframes fadeInUp {
@@ -273,6 +274,12 @@ nav a:hover::after {
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
     color: white;
     animation: slideInRight 1s ease-out 0.2s both;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.hero-title br {
+    display: none;
 }
 
 @keyframes slideInRight {
@@ -310,6 +317,8 @@ nav a:hover::after {
     position: relative;
     overflow: hidden;
     animation: fadeIn 2s ease-out 1s both;
+    min-height: 60px;
+    min-width: 200px;
 }
 
 .hero-cta::before {
@@ -619,6 +628,8 @@ nav a:hover::after {
     text-transform: uppercase;
     margin-top: 15px;
     font-weight: 600;
+    min-height: 44px;
+    min-width: 160px;
 }
 
 .collection-btn:hover {
@@ -794,6 +805,8 @@ nav a:hover::after {
     font-weight: 600;
     position: relative;
     overflow: hidden;
+    min-height: 44px;
+    min-width: 180px;
 }
 
 .btn-light::before {
@@ -1075,6 +1088,7 @@ footer::before {
     display: flex;
     align-items: center;
     gap: 10px;
+    padding: 5px 0;
 }
 
 .footer-column ul li a:hover {
@@ -1115,6 +1129,7 @@ footer::before {
     margin-bottom: 15px;
     border-radius: 5px;
     transition: var(--transition);
+    font-size: 16px;
 }
 
 .newsletter input:focus {
@@ -1135,6 +1150,7 @@ footer::before {
     letter-spacing: 1px;
     font-weight: 600;
     border-radius: 5px;
+    min-height: 44px;
 }
 
 .newsletter button:hover {
@@ -1159,6 +1175,8 @@ footer::before {
     justify-content: center;
     text-decoration: none;
     transition: var(--transition);
+    min-height: 44px;
+    min-width: 44px;
 }
 
 .social-link:hover {
@@ -1267,29 +1285,209 @@ footer::before {
 }
 
 @media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        gap: 20px;
+    /* Mobile Menu Styling */
+    .mobile-menu-btn {
+        display: block;
+        z-index: 1001;
     }
+    
     nav ul {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        z-index: 1000;
+        gap: 0;
+        text-align: center;
+    }
+    
+    nav ul.show {
+        display: flex;
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    nav ul li {
+        width: 100%;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 15px 0;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 1.1rem;
+    }
+    
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+    
+    .nav-actions {
         gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
     }
+    
+    .nav-actions.show {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 15px;
+        display: flex;
+        justify-content: space-around;
+        box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+    
+    /* Hero Section */
+    .hero {
+        min-height: 70vh;
+        padding: 40px 20px;
+        margin-top: 60px;
+    }
+    
+    .hero-content {
+        padding: 0 10px;
+    }
+    
     .hero-title {
-        font-size: 2.8rem;
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 15px;
     }
+    
     .hero-tagline {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
+        margin-bottom: 25px;
     }
-    .collection-card {
-        height: 400px;
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
     }
-    .collection-name {
+    
+    .hero-cta {
+        padding: 15px 30px;
+        font-size: 1rem;
+        min-height: 50px;
+        min-width: 180px;
+    }
+    
+    /* Sale Section */
+    .sale-section {
+        padding: 60px 0;
+    }
+    
+    .sale-header h2 {
         font-size: 1.8rem;
     }
-    .products-grid, .sale-products-grid {
+    
+    .sale-timer {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+    
+    .sale-products-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    /* Collections */
+    .collections, .featured-collections {
+        padding: 60px 0;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .collection-card {
+        height: 300px;
+    }
+    
+    .collection-overlay {
+        padding: 20px;
+    }
+    
+    .collection-name {
+        font-size: 1.5rem;
+    }
+    
+    .collection-btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+    
+    /* Featured Products */
+    .featured-products {
+        padding: 60px 0;
+    }
+    
+    .products-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .products-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .product-img {
+        height: 200px;
+    }
+    
+    /* Services */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .service-card {
+        padding: 30px 20px;
+    }
+    
+    /* Footer */
+    footer {
+        padding: 50px 0 20px;
+    }
+    
+    .footer-column {
+        margin-bottom: 30px;
+    }
+    
+    .footer-column h3 {
+        margin-bottom: 20px;
+    }
+    
+    /* WhatsApp Float */
+    .floating-whatsapp {
+        width: 55px;
+        height: 55px;
+        font-size: 1.5rem;
+        bottom: 80px;
+        right: 15px;
+    }
+    
+    .back-to-top {
+        bottom: 140px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    /* Touch-friendly buttons */
+    button, .btn-light, a.nav-icon, .social-link {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -1297,23 +1495,29 @@ footer::before {
     .collections-grid, .products-grid, .collections-mini-grid, .sale-products-grid {
         grid-template-columns: 1fr;
     }
+    
     .hero-title {
         font-size: 2.2rem;
     }
+    
     .hero-subtitle {
         font-size: 1rem;
         letter-spacing: 3px;
     }
+    
     .section-header h2 {
         font-size: 2.2rem;
     }
+    
     .sale-header h2 {
         font-size: 2.2rem;
     }
+    
     .footer-top {
         grid-template-columns: 1fr;
         gap: 30px;
     }
+    
     .floating-whatsapp {
         width: 60px;
         height: 60px;
@@ -1321,11 +1525,225 @@ footer::before {
         bottom: 20px;
         right: 20px;
     }
+    
     .back-to-top {
         bottom: 90px;
         right: 20px;
         width: 45px;
         height: 45px;
     }
+}
 
+/* ===== ULTRA-MOBILE FIXES ===== */
+@media (max-width: 480px) {
+    /* Fix hero section text overflow */
+    .hero-title {
+        font-size: 1.6rem !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        line-height: 1.3;
+        padding: 0 10px;
+    }
+    
+    .hero-title br {
+        display: block;
+        content: ' ';
+        margin: 0;
+    }
+    
+    .hero-tagline {
+        font-size: 0.9rem !important;
+        line-height: 1.4;
+        padding: 0 15px;
+        margin-bottom: 20px;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.75rem !important;
+        letter-spacing: 1.5px;
+        margin-bottom: 8px;
+    }
+    
+    .hero-cta {
+        padding: 12px 25px !important;
+        font-size: 0.9rem !important;
+        min-height: 44px;
+        min-width: 160px;
+    }
+    
+    .hero-notice {
+        font-size: 0.85rem !important;
+        padding: 0 20px;
+        line-height: 1.5;
+        margin-top: 25px;
+    }
+    
+    /* Fix sale section overflow */
+    .sale-header h2 {
+        font-size: 1.3rem !important;
+        padding: 0 10px;
+        line-height: 1.3;
+    }
+    
+    .sale-timer {
+        font-size: 0.8rem !important;
+        padding: 8px 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .sale-timer span {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    /* Fix product cards on very small screens */
+    .sale-product-card,
+    .product-card {
+        margin: 0 5px 20px 5px;
+    }
+    
+    .sale-product-title,
+    .product-title {
+        font-size: 1rem !important;
+        line-height: 1.3;
+    }
+    
+    .sale-price,
+    .product-price {
+        font-size: 1rem !important;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    /* Fix logo text on mobile */
+    .logo-text h1 {
+        font-size: 1.2rem;
+        line-height: 1.2;
+    }
+    
+    .logo-tagline {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+    }
+    
+    /* Mobile menu fixes for very small screens */
+    .mobile-menu-btn {
+        font-size: 1.3rem;
+        padding: 8px;
+    }
+    
+    nav ul {
+        top: 60px;
+        padding: 15px;
+    }
+    
+    nav ul li a {
+        padding: 12px 0;
+        font-size: 1rem;
+    }
+    
+    .nav-actions.show {
+        padding: 12px;
+    }
+    
+    .nav-icon {
+        font-size: 1.1rem;
+        min-height: 40px;
+        min-width: 40px;
+    }
+}
+
+/* Additional fixes for very small screens */
+@media (max-width: 360px) {
+    /* Hero section for iPhone 5/SE size */
+    .hero {
+        min-height: 80vh;
+        padding: 30px 10px;
+    }
+    
+    .hero-title {
+        font-size: 1.4rem !important;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+    
+    .hero-tagline {
+        font-size: 0.85rem !important;
+        margin-bottom: 15px;
+    }
+    
+    /* Fix logo layout */
+    .logo {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+    
+    .logo-icon {
+        font-size: 1.8rem;
+    }
+    
+    .logo-text h1 {
+        font-size: 1rem;
+    }
+    
+    /* Adjust padding for very small screens */
+    .container {
+        padding: 0 10px !important;
+    }
+    
+    /* Fix buttons on tiny screens */
+    .hero-cta,
+    .btn-light,
+    .collection-btn {
+        padding: 10px 20px !important;
+        font-size: 0.85rem !important;
+        min-width: 140px;
+    }
+    
+    /* Fix footer text */
+    .footer-column h3 {
+        font-size: 1.1rem;
+    }
+    
+    .contact-info li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .contact-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Prevent text overflow globally */
+* {
+    max-width: 100%;
+}
+
+/* Force text wrapping */
+h1, h2, h3, h4, h5, p, span, div {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Fix for long words */
+.long-text-fix {
+    word-break: break-word;
+}
+
+/* Fix for iOS Safari text size adjustment */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
