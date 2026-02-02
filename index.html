@@ -7,6 +7,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="style.css">
+<style>
+    /* Emergency mobile text overflow fix */
+    @media (max-width: 480px) {
+        .hero-title {
+            font-size: 1.6rem !important;
+            line-height: 1.3 !important;
+            padding: 0 15px !important;
+            word-break: break-word !important;
+        }
+        
+        .hero-tagline {
+            font-size: 0.9rem !important;
+            padding: 0 20px !important;
+        }
+        
+        .hero-subtitle {
+            font-size: 0.75rem !important;
+        }
+        
+        body, html {
+            overflow-x: hidden !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        
+        .container {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+    }
+    
+    @media (max-width: 360px) {
+        .hero-title {
+            font-size: 1.4rem !important;
+        }
+        
+        .logo-text h1 {
+            font-size: 1rem !important;
+        }
+    }
+</style>
 </head>
 <body>
     <!-- HEADER -->
@@ -19,6 +60,12 @@
                     <div class="logo-tagline">Celebrate Traditions</div>
                 </div>
             </a>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
